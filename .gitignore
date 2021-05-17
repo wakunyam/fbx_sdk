@@ -1,0 +1,14 @@
+/.vs
+/include
+/lib
+*.exe
+*.lik
+*.pdb
+*.obj
+*.log
+*.pch
+*.idb
+*.tlog
+*.lastbuildstate
+*.suo
+*.db
