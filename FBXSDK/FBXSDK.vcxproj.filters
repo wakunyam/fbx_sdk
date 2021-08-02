@@ -18,5 +18,11 @@
     <ClCompile Include="fbxsdk.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="meshExporter.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="animationExporter.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

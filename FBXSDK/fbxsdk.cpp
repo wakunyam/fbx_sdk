@@ -28,7 +28,8 @@ Skeleton skeleton;
 
 int main()
 {
-	const char* fileName = "skeletonanimwalk.fbx";
+	string fileName = "skeletonanimwalk";
+	string fn = fileName + ".fbx";
 
 	FbxManager* fbxManager;
 	FbxScene* fbxScene;
@@ -40,7 +41,7 @@ int main()
 
 	FbxImporter* fbxImporter = FbxImporter::Create(fbxManager, "");
 
-	if (!fbxImporter->Initialize(fileName, -1, fbxManager->GetIOSettings())) {
+	if (!fbxImporter->Initialize(fn.c_str(), -1, fbxManager->GetIOSettings())) {
 		cout << "Call to FbxImporter::Initialize() failed." << endl;
 		cout << "Error returned: " << fbxImporter->GetStatus().GetErrorString();
 		exit(-1);
@@ -107,8 +108,6 @@ void ProcessJointAndAnimations(FbxNode* inNode)
 
 			FbxAMatrix transformLinkMatrix;
 			currCluster->GetTransformLinkMatrix(transformLinkMatrix);
-
-			
 		}
 	}
 }
