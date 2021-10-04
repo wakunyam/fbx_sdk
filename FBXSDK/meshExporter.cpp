@@ -76,8 +76,9 @@ void WriteMeshData(ostream& inStream)
 
 int main()
 {
-	string fileName = "1stage";
-	string fn = fileName + ".fbx";
+	string infolder = "fbx\\";
+	string fileName = "stair2";
+	string fn = infolder + fileName + ".fbx";
 
 	FbxManager* fbxManager;
 	FbxScene* fbxScene;
@@ -108,15 +109,17 @@ int main()
 	indices = new unsigned int[numTriangles * 3];
 	int nbIndex = 0;
 	for (unsigned int i = 0; i < numTriangles; ++i) {
-		for (unsigned int j = 0; j < 3; ++j) {
+		//for (unsigned int j = 0; j < 3; ++j) {
+		for (int j = 2; j >= 0; --j) {
 			int controlPointIndex = gMesh->GetPolygonVertex(i, j);
 
 			indices[nbIndex++] = controlPointIndex;
 		}
 	}
 
-	fileName += "MeshData.json";
-	ofstream out(fileName, ios::binary);
+	string outfolder = "meshData\\";
+	fn = outfolder + fileName + "MeshData.json";
+	ofstream out(fn, ios::binary);
 
 	WriteMeshData(out);
 }
